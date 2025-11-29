@@ -25,13 +25,9 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url(img/background-img.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 2;
-    position: relative;
-    place-content: center;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
 }
 
 nav {
@@ -45,6 +41,20 @@ nav {
     position: sticky;
     top: 0;
     z-index: 1000;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: 0.3s;
 }
 
 nav ul {
@@ -84,10 +94,32 @@ nav>ul li a:hover {
 /* Parent container */
 .profiling {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    gap: 300px;
-    padding: 100px;
+    gap: 80px;
+    padding: 80px 40px;
+    min-height: 80vh;
+    background-image: url(img/background-img.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.profiling::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(2, 8, 135, 0.85) 0%, rgba(149, 178, 176, 0.75) 100%);
+    z-index: 1;
+}
+
+.profiling > * {
+    position: relative;
+    z-index: 2;
 }
 
 /* Profile Image */
@@ -125,6 +157,16 @@ nav>ul li a:hover {
     font-size: 1.2rem;
     color: var(--accent-blue);
     line-height: 1.5;
+}
+
+.intro h1 {
+    color: var(--white);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+.intro p {
+    color: var(--white);
+    font-size: 1.1rem;
 }
 
 /* Animation  */
@@ -188,22 +230,24 @@ nav>ul li a:hover {
 .btn1 {
     padding: 12px 30px;
     background: transparent;
-    border: 2px solid #647AA3 ;
-    color: var(--span-backgroundcolor);
+    border: 2px solid var(--white);
+    color: var(--white);
     font-size: 1rem;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease-out, color 0.3s ease-out, transform 0.3s ease-out;
+    white-space: nowrap;
+    min-width: 150px;
 }
 
 .btn2:hover {
-    background: #647AA3;
-    color: var(--text-color);
+    background: var(--white);
+    color: var(--primary);
     transform: translateY(-3px);
 }
 .btn1:hover {
-    background: #647AA3;
-    color: var(--text-color);
+    background: var(--white);
+    color: var(--primary);
     transform: translateY(-3px);
 }
 
@@ -211,28 +255,45 @@ nav>ul li a:hover {
 
 /* Small phones (320px - 480px) */
 @media (max-width: 480px) {
+    .hamburger {
+        display: flex;
+    }
+    
     nav {
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px;
+        padding: 15px 20px;
     }
+    
     nav ul {
+        position: fixed;
+        left: -100%;
+        top: 60px;
         flex-direction: column;
-        gap: 5px;
+        background: var(--ul-backgroundcolor);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
     }
+    
+    nav ul.active {
+        left: 0;
+    }
+    
     nav>ul li a {
-        padding: 0.75rem 0.5rem;
-        font-size: 0.9rem;
+        padding: 1rem;
+        font-size: 1.1rem;
+        display: block;
     }
+    
     .logo {
-        font-size: 18px;
-        margin-bottom: 10px;
+        font-size: 20px;
     }
     .profiling {
         flex-direction: column;
         text-align: center;
-        gap: 20px;
-        padding: 40px 15px;
+        gap: 30px;
+        padding: 60px 20px;
+        min-height: auto;
     }
     .about {
         flex-direction: column;
@@ -267,13 +328,14 @@ nav>ul li a:hover {
     .intro {
         max-width: 100%;
         align-items: center;
-        padding: 10px;
+        padding: 20px;
     }
     .intro h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     .intro p {
-        font-size: 0.95rem;
+        font-size: 1.05rem;
+        line-height: 1.6;
     }
     .profile-pic {
         width: 180px;
@@ -282,12 +344,14 @@ nav>ul li a:hover {
     .btn {
         flex-direction: column;
         width: 100%;
+        gap: 15px;
     }
     .btn1,
     .btn2 {
-        width: 100%;
-        padding: 12px 20px;
-        font-size: 0.9rem;
+        width: auto;
+        max-width: 200px;
+        padding: 14px 30px;
+        font-size: 1rem;
     }
     .about-me {
         font-size: 2rem;
@@ -327,22 +391,40 @@ nav>ul li a:hover {
 
 /* Medium Tablets (768px - 900px) */
 @media (max-width: 900px) {
+    .hamburger {
+        display: flex;
+    }
+    
     nav {
-        flex-wrap: wrap;
-        gap: 10px;
-        padding: clamp(10px, 2vw, 15px);
+        padding: 15px 20px;
     }
-    nav ul { flex-wrap: wrap; gap: 5px; }
+    
+    nav ul {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        flex-direction: column;
+        background: var(--ul-backgroundcolor);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+    
+    nav ul.active {
+        left: 0;
+    }
+    
     nav>ul li a {
-        padding: clamp(0.75rem, 2vw, 1rem) clamp(0.5rem, 1.5vw, 0.75rem);
-        font-size: clamp(0.9rem, 2vw, 1rem);
+        padding: 1rem;
+        font-size: 1.1rem;
     }
+    
     .logo { font-size: clamp(18px, 3vw, 22px); }
     .profiling {
         flex-direction: column;
         text-align: center;
-        gap: clamp(20px, 4vw, 40px);
-        padding: clamp(40px, 6vw, 60px) clamp(15px, 3vw, 30px);
+        gap: 40px;
+        padding: 60px 30px;
     }
     .intro {
         max-width: 100%;
@@ -354,19 +436,19 @@ nav>ul li a:hover {
         width: clamp(200px, 30vw, 250px);
         height: clamp(200px, 30vw, 250px);
     }
-    .btn { flex-direction: column; width: 100%; gap: 15px; }
+    .btn { flex-direction: row; width: 100%; gap: 15px; justify-content: center; }
     .btn1, .btn2 {
-        width: 100%;
-        padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px);
-        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        width: auto;
+        padding: 12px 25px;
+        font-size: 1rem;
     }
 }
 
 /* Tablets (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .profiling {
-        gap: 50px;
-        padding: 20px;
+        gap: 60px;
+        padding: 80px 40px;
     }
     .intro {
         max-width: 450px;
@@ -387,7 +469,8 @@ nav>ul li a:hover {
 /* Large screens and desktops (1025px+) */
 @media (min-width: 1025px) {
     .profiling {
-        gap: 300px;
+        gap: 100px;
+        padding: 100px 60px;
     }
     /* Position intro-text to the right inside the about section on large screens */
     .about {
@@ -395,9 +478,7 @@ nav>ul li a:hover {
         align-items: center;
         justify-content: flex-end;
         padding: 40px 80px;
-    }
-    /* keep intro-text stacked but aligned to the left */
-    .about .intro-text {
+    } {
         margin-left: auto;
         max-width: 550px;
         text-align: left;
