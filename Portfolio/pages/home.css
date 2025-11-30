@@ -301,29 +301,71 @@ nav>ul li a:hover {
         gap: 40px;
         padding: 60px 20px;
         min-height: auto;
+        background: linear-gradient(135deg, #7e57c2 0%, #5e35b1 100%);
+        position: relative;
+    }
+    
+    .about::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.15);
+        pointer-events: none;
     }
     
     .about .profile-pic {
         width: 250px;
         height: 250px;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     }
     
     .intro-text {
         max-width: 100%;
         align-items: center;
         text-align: center;
+        position: relative;
+        z-index: 2;
     }
     
     .intro-text p {
         text-align: center;
         font-size: 1rem;
+        color: #ffffff;
+    }
+    
+    .intro-text .about-me {
+        color: #ffffff;
+    }
+    
+    .about .btn1 {
+        border-color: #ffffff;
+        color: #ffffff;
+        background: transparent;
+        font-weight: 600;
+    }
+    
+    .about .btn1:hover {
+        background: #ffffff;
+        color: #5e35b1;
     }
     .project-container {
-        padding: 60px 15px;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #0d47a1 0%, #01579b 100%);
+        width: 100%;
     }
     .cards {
         grid-template-columns: 1fr;
-        gap: 20px;
+    }
+    .card {
+        width: 100%;
+    }
+    .card-content {
+        padding: 25px;
     }
     .intro {
         max-width: 100%;
@@ -383,9 +425,47 @@ nav>ul li a:hover {
 
 /* Tablets (768px - 991px) */
 @media (max-width: 991px) {
-    .cards { grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 3vw, 30px); }
-    .about { gap: clamp(40px, 6vw, 60px); }
-    .about .profile-pic { width: clamp(250px, 35vw, 300px); height: clamp(250px, 35vw, 300px); }
+    .card { width: 100%; }
+    .about { 
+        gap: clamp(40px, 6vw, 60px);
+        background: linear-gradient(135deg, #7e57c2 0%, #5e35b1 100%);
+        position: relative;
+    }
+    .about::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.15);
+        pointer-events: none;
+    }
+    .about .profile-pic { 
+        width: clamp(250px, 35vw, 300px); 
+        height: clamp(250px, 35vw, 300px);
+        position: relative;
+        z-index: 2;
+    }
+    .about .intro-text {
+        position: relative;
+        z-index: 2;
+    }
+    .about .intro-text p {
+        color: #ffffff;
+    }
+    .about .about-me {
+        color: #ffffff;
+    }
+    .about .btn1 {
+        border-color: #ffffff;
+        color: #ffffff;
+        background: transparent;
+    }
+    .about .btn1:hover {
+        background: #ffffff;
+        color: #5e35b1;
+    }
     .contact-container { gap: clamp(20px, 4vw, 40px); }
 }
 
@@ -426,6 +506,35 @@ nav>ul li a:hover {
         gap: 40px;
         padding: 60px 30px;
     }
+    .about {
+        background: linear-gradient(135deg, #7e57c2 0%, #5e35b1 100%);
+        position: relative;
+    }
+    .about::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.15);
+        pointer-events: none;
+    }
+    .about .intro-text p {
+        color: #ffffff;
+    }
+    .about .about-me {
+        color: #ffffff;
+    }
+    .about .btn1 {
+        border-color: #ffffff;
+        color: #ffffff;
+        background: transparent;
+    }
+    .about .btn1:hover {
+        background: #ffffff;
+        color: #5e35b1;
+    }
     .intro {
         max-width: 100%;
         align-items: center;
@@ -442,6 +551,8 @@ nav>ul li a:hover {
         padding: 12px 25px;
         font-size: 1rem;
     }
+    .cards { width: 100%; }
+    .card { width: 100%; }
 }
 
 /* Tablets (769px - 1024px) */
@@ -449,6 +560,35 @@ nav>ul li a:hover {
     .profiling {
         gap: 60px;
         padding: 80px 40px;
+    }
+    .about {
+        background: linear-gradient(135deg, #7e57c2 0%, #5e35b1 100%);
+        position: relative;
+    }
+    .about::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.15);
+        pointer-events: none;
+    }
+    .about .intro-text p {
+        color: #ffffff;
+    }
+    .about .about-me {
+        color: #ffffff;
+    }
+    .about .btn1 {
+        border-color: #ffffff;
+        color: #ffffff;
+        background: transparent;
+    }
+    .about .btn1:hover {
+        background: #ffffff;
+        color: #5e35b1;
     }
     .intro {
         max-width: 450px;
@@ -499,7 +639,7 @@ nav>ul li a:hover {
         margin-bottom: clamp(15px, 3vw, 25px);
     }
     .about {
-        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        background: linear-gradient(135deg, #d1c4e9 0%, #b39ddb 100%);
         min-height: 700px;
         padding: 100px 60px;
         display: flex;
@@ -516,8 +656,8 @@ nav>ul li a:hover {
         left: 0;
         right: 0;
         bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23e9ecef" opacity="0.3"/></svg>') repeat;
-        background-size: 50px 50px;
+        background: radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.2) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.2) 0%, transparent 50%);
         pointer-events: none;
     }
     
@@ -548,8 +688,20 @@ nav>ul li a:hover {
     .intro-text p {
         font-size: 1.2rem;
         line-height: 1.8;
-        color: #495057;
+        color: #311b92;
         text-align: justify;
+    }
+    
+    .about .btn1 {
+        border-color: #1a237e;
+        color: #1a237e;
+        background: white;
+        font-weight: 600;
+    }
+    
+    .about .btn1:hover {
+        background: #1a237e;
+        color: white;
     }
     
     .intro-text .job {
@@ -560,38 +712,37 @@ nav>ul li a:hover {
         font-weight: 700;
     }
     .project-container {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #0d47a1 0%, #01579b 100%);
         padding: 100px 40px;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
-        max-width: 1400px;
-        width: 100%;
-        margin-top: 40px;
-    }
-    
-    @media (max-width: 1200px) {
-        .cards {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-    
-    @media (max-width: 900px) {
-        .cards {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
+
 }
 
 /* ------------------------------
    PROJECT / CARD SECTION (FIXED)
 --------------------------------*/
+
+.project-container {
+    background: linear-gradient(135deg, #0d47a1 0%, #01579b 100%);
+    padding: 80px 40px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
 
 .card {
     background: white;
@@ -602,6 +753,8 @@ nav>ul li a:hover {
     flex-direction: column;
     transition: all 0.3s ease;
     border: 1px solid rgba(255,255,255,0.2);
+    width: 100%;
+    margin-bottom: 0;
 }
 
 .card img {
@@ -609,6 +762,7 @@ nav>ul li a:hover {
     height: 250px;
     object-fit: cover;
     transition: transform 0.3s ease;
+    display: block;
 }
 
 .card:hover img {
@@ -674,7 +828,6 @@ nav>ul li a:hover {
     text-transform: uppercase;
     margin-bottom: clamp(10px, 2vw, 20px);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}xt-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .project-title > p {
@@ -1127,11 +1280,10 @@ nav>ul li a:hover {
     }
 }
 
-/* Small Mobile (320px - 480px) */
+/* Small Mobile (320px - 480px) - Additional overrides */
 @media (max-width: 480px) {
     .contact-wrapper { padding: clamp(30px, 8vw, 50px) clamp(10px, 4vw, 20px); }
     .contact-info-card, .contact-form-card { padding: clamp(20px, 5vw, 30px); }
-    .cards { grid-template-columns: 1fr; gap: clamp(15px, 4vw, 25px); }
     .form-row { flex-direction: column; gap: clamp(15px, 3vw, 20px); }
     .nav { padding: clamp(8px, 2vw, 12px); }
     .profiling { padding: clamp(30px, 6vw, 50px) clamp(10px, 3vw, 20px); }
